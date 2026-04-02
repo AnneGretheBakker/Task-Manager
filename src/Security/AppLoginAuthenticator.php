@@ -48,7 +48,7 @@ class AppLoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('/task'));
+        return new RedirectResponse($this->urlGenerator->generate('app_task_index'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
