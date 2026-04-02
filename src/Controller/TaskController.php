@@ -15,11 +15,16 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/task')]
 final class TaskController extends AbstractController
 {
-    #[Route(name: 'app_task_index', methods: ['GET'])]
+    #[Route('/', name: 'app_task_index', methods: ['GET'])]
     public function index(TaskRepository $taskRepository): Response
     {
+        $tasks = $taskRepository->findBy(
+            ['user' => $this->getUser()],
+            ['deadline' => 'ASC']
+        );
+
         return $this->render('task/index.html.twig', [
-            'tasks' = $taskRepository->findBy(['user' => $this->getUser()], ['deadline' => 'ASC']),
+            'tasks' => $tasks,
         ]);
     }
 
