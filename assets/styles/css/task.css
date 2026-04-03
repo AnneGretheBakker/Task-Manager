@@ -7,7 +7,7 @@ body {
     color: #1e293b;
 }
 
-#tasksDiv {
+.tasksDiv {
     margin: 0 250px 250px;
     padding: 2rem;
 }
@@ -72,28 +72,6 @@ a {
     margin-right: 0.3rem;
 }
 
-.buttonShow {
-    color: #d63384;
-    background: #ffe4ec;
-    border: 1px solid #ffe4ec;
-}
-.buttonShow:hover {
-    background: white;
-    color: #d63384;
-    border: 1px solid #d63384;
-}
-
-.buttonEdit {
-    color: #d63384;
-    background: #ffe4ec;
-    border: 1px solid #ffe4ec;
-}
-.buttonEdit:hover {
-    background: white;
-    color: #d63384;
-    border: 1px solid #d63384;
-}
-
 /* "Create new" knop boven/onder de tabel */
 .buttonNew {
     display: inline-block;
@@ -130,4 +108,9 @@ a {
         overflow-x: auto;
         white-space: nowrap;
     }
+}
+
+form {
+    display: inline-block;
+    margin: 0;
 }

@@ -3,7 +3,7 @@
 {% block title %}Task index{% endblock %}
 
 {% block body %}
-    <div id='tasksDiv'>
+    <div class='tasksDiv'>
         <h1>Task index</h1>
 
         <table class="table">
@@ -28,8 +28,8 @@
                     <td>{{ task.status }}</td>
                     <td>{{ task.priority }}</td>
                     <td>
-                        <a href="{{ path('app_task_show', {'id': task.id}) }}" class='buttonShow'>show task</a>
-                        <a href="{{ path('app_task_edit', {'id': task.id}) }}" class='buttonEdit'>edit</a>
+                        <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
+                        <a href="{{ path('app_task_edit', {'id': task.id}) }}" class='actionButton'>edit</a>
                     </td>
                 </tr>
             {% else %}
