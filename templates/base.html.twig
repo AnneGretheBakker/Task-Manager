@@ -23,10 +23,9 @@
             <div class="nav-container">
                 <a href="{{ path('app_home') }}" class="nav-brand">📋 Task Manager</a>
                 <div class="nav-links">
-                    <a href="{{ path('app_task_index') }}" class="nav-link logout">My tasks</a>
-                    <a href="{{ path('app_task_new') }}" class="nav-link logout">+ Add task</a>
-
                     {% if app.user %}
+                        <a href="{{ path('app_task_index') }}" class="nav-link logout">My tasks</a>
+                        <a href="{{ path('app_task_new') }}" class="nav-link logout">+ Add task</a>
                         <span class="nav-user">👋 {{ app.user.email }}</span>
                         <a href="{{ path('app_logout') }}" class="nav-link logout">Log out</a>
                     {% else %}
