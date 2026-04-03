@@ -9,7 +9,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Deadline</th>
@@ -21,7 +20,6 @@
             <tbody>
             {% for task in tasks %}
                 <tr>
-                    <td>{{ task.id }}</td>
                     <td>{{ task.title }}</td>
                     <td>{{ task.description }}</td>
                     <td>{{ task.deadline ? task.deadline|date('Y-m-d H:i:s') : '' }}</td>
