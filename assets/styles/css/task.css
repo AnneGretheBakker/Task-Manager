@@ -4,9 +4,12 @@
 body {
     background: #ffe4ec;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: #1e293b;
+}
+
+#tasksDiv {
     margin: 0 250px 250px;
     padding: 2rem;
-    color: #1e293b;
 }
 
 h1 {
@@ -55,12 +58,10 @@ h1 {
     transition: background 0.2s;
 }
 
-/* Status badges */
-.table td:nth-child(5) { /* status kolom */
+.table td:nth-child(5) {
     font-weight: 500;
 }
 
-/* Knoppen en acties */
 a {
     text-decoration: none;
     font-weight: 500;
