@@ -27,8 +27,8 @@
                 <td>{{ task.status }}</td>
                 <td>{{ task.priority }}</td>
                 <td>
-                    <a href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
-                    <a href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+                    <a href="{{ path('app_task_show', {'id': task.id}) }}" class='buttonShow'>show task</a>
+                    <a href="{{ path('app_task_edit', {'id': task.id}) }}" class='buttonEdit'>edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,7 +39,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_task_new') }}">Create new</a>
+    <a href="{{ path('app_task_new') }}" class='buttonNew'>Create new</a>
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('/styles/css/task.css') }}">

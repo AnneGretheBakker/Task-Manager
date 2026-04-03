@@ -1,10 +1,10 @@
-/* public/css/task.css */
+/* assets/styles/css/task.css */
 
 /* Algemene stijlen */
 body {
-    background: #f4f6f9;
+    background: #ffe4ec;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    margin: 0;
+    margin: 0 250px 250px;
     padding: 2rem;
     color: #1e293b;
 }
@@ -15,14 +15,14 @@ h1 {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    color: #d63384;
     margin-bottom: 1.5rem;
 }
 
 /* Tabel styling */
 .table {
     width: 100%;
-    background: white;
+    background: #fff0f5;
     border-radius: 1rem;
     border-collapse: collapse;
     overflow: hidden;
@@ -38,7 +38,7 @@ h1 {
     padding: 1rem 1rem;
     text-align: left;
     font-weight: 600;
-    color: #334155;
+    color: #d63384;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -51,7 +51,7 @@ h1 {
 }
 
 .table tbody tr:hover {
-    background: #fefce8;
+    background: white;
     transition: background 0.2s;
 }
 
@@ -59,9 +59,6 @@ h1 {
 .table td:nth-child(5) { /* status kolom */
     font-weight: 500;
 }
-
-/* Je kunt ook aparte klassen toevoegen in Twig, maar dit is een snelle manier */
-/* Optioneel: voeg in Twig een class toe aan status, bv. <span class="badge"> */
 
 /* Knoppen en acties */
 a {
@@ -74,38 +71,45 @@ a {
     margin-right: 0.3rem;
 }
 
-a[href*="show"] {
-    color: #2563eb;
-    background: #eff6ff;
+.buttonShow {
+    color: #d63384;
+    background: #ffe4ec;
+    border: 1px solid #ffe4ec;
 }
-a[href*="show"]:hover {
-    background: #2563eb;
-    color: white;
+.buttonShow:hover {
+    background: white;
+    color: #d63384;
+    border: 1px solid #d63384;
 }
 
-a[href*="edit"] {
-    color: #d97706;
-    background: #fffbeb;
+.buttonEdit {
+    color: #d63384;
+    background: #ffe4ec;
+    border: 1px solid #ffe4ec;
 }
-a[href*="edit"]:hover {
-    background: #d97706;
-    color: white;
+.buttonEdit:hover {
+    background: white;
+    color: #d63384;
+    border: 1px solid #d63384;
 }
 
 /* "Create new" knop boven/onder de tabel */
-a[href*="new"] {
+.buttonNew {
     display: inline-block;
     margin-top: 1.5rem;
-    background: #2a5298;
+    background: #d63384;
     color: white;
     padding: 0.5rem 1.2rem;
     border-radius: 2rem;
     font-weight: 500;
+    border: 1px solid #d63384;
 }
-a[href*="new"]:hover {
-    background: #1e3c72;
+.buttonNew:hover {
+    background: white;
+    color: #d63384;
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #d63384;
 }
 
 /* "no records found" bericht */
