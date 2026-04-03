@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,96 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{ app.user.email }} 👋</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/lidlv/Documents/taakbeheer/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/Users/lidlv/Documents/taakbeheer/templates/home/index.html.twig</code></li>
-    </ul>
+    Are you ready to start some tasks?
+
+    <h3>Tasks due today/tomorrow</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in urgentTasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.deadline ? task.deadline|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no tasks due today/tomorrow</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Tasks with high priority</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in highPriority %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.deadline ? task.deadline|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no tasks with high priority</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Open tasks</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in openTasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.deadline ? task.deadline|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no tasks with high priority</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('/styles/css/task.css') }}">
+    {% endblock %}
 {% endblock %}
