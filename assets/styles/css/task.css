@@ -23,7 +23,7 @@ h1 {
 }
 
 /* Tabel styling */
-.table {
+table {
     width: 100%;
     background: #fff0f5;
     border-radius: 1rem;
@@ -32,12 +32,12 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.table thead tr {
+table thead tr {
     background: #f8fafc;
     border-bottom: 2px solid #e2e8f0;
 }
 
-.table th {
+table th {
     padding: 1rem 1rem;
     text-align: left;
     font-weight: 600;
@@ -47,18 +47,26 @@ h1 {
     letter-spacing: 0.5px;
 }
 
-.table td {
+table td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #e2e8f0;
     vertical-align: middle;
 }
 
-.table tbody tr:hover {
+.form-table {
+    width: 135%;
+}
+
+.form-table th {
+    width: 30%;
+}
+
+table tbody tr:hover {
     background: white;
     transition: background 0.2s;
 }
 
-.table td:nth-child(5) {
+table td:nth-child(5) {
     font-weight: 500;
 }
 
@@ -103,7 +111,7 @@ a {
     body {
         padding: 1rem;
     }
-    .table {
+    table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
@@ -113,4 +121,17 @@ a {
 form {
     display: inline-block;
     margin: 0;
+}
+
+input, textarea, .form-control {
+    width: 35%;
+    padding: 10px;
+    border: 2px solid #d63384;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 38%;
 }

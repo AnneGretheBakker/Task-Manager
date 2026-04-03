@@ -6,6 +6,7 @@ use App\Entity\Task;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TaskType extends AbstractType
 {
@@ -15,8 +16,22 @@ class TaskType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('deadline')
-            ->add('status')
-            ->add('priority')
+            ->add('status', ChoiceType::class, [
+                'choices' => [
+                    'Open' => 'Open',
+                    'Doing' => 'Doing',
+                    'Done' => 'Done',
+                ],
+                'attr' => ['class' => 'form-control'],
+            ])
+            ->add('priority', ChoiceType::class, [
+                'choices' => [
+                    'Low' => 'Low',
+                    'Medium' => 'Medium',
+                    'High' => 'High',
+                ],
+                'attr' => ['class' => 'form-control'],
+            ])
         ;
     }
 
