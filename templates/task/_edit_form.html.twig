@@ -1,0 +1,54 @@
+{{ form_start(form) }}
+    <table class="form-table">
+        {# Titel #}
+        <tr>
+            <th>{{ form_label(form.title) }}</th>
+            <td>
+                {{ form_widget(form.title) }}
+                {{ form_errors(form.title) }}
+            </td>
+        </tr>
+        {# Omschrijving #}
+        <tr>
+            <th>{{ form_label(form.description) }}</th>
+            <td>
+                {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
+            </td>
+        </tr>
+        {# Deadline #}
+        <tr>
+            <th>{{ form_label(form.deadline) }}</th>
+            <td>
+                {{ form_widget(form.deadline) }}
+                {{ form_errors(form.deadline) }}
+            </td>
+        </tr>
+        {# Status #}
+        <tr>
+            <th>{{ form_label(form.status) }}</th>
+            <td>
+                {{ form_widget(form.status) }}
+                {{ form_errors(form.status) }}
+            </td>
+        </tr>
+        {# Prioriteit #}
+        <tr>
+            <th>{{ form_label(form.priority) }}</th>
+            <td>
+                {{ form_widget(form.priority) }}
+                {{ form_errors(form.priority) }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div class="form-actions">
+                    <button class="actionButton">{{ button_label|default('Save') }}</button>
+                    <a href="{{ path('app_task_index') }}" class='actionButton'>back to list</a>
+                    {{ include('task/_delete_form.html.twig') }}
+                </div>
+            </th>
+            <td> </td>
+        </tr>
+    </table>
+{{ form_end(form) }}

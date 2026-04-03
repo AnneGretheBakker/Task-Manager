@@ -61,6 +61,14 @@ table td {
     width: 30%;
 }
 
+.new-form-table {
+    width: 178%;
+}
+
+.new-form-table th {
+    width: 30%;
+}
+
 table tbody tr:hover {
     background: white;
     transition: background 0.2s;
@@ -134,4 +142,12 @@ input, textarea, .form-control {
 
 .form-control {
     width: 38%;
+}
+
+.new-form-table input, .new-form-table textarea {
+    width: 40%;
+}
+
+.new-form-table .form-control {
+    width: 43%;
 }

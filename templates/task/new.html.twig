@@ -3,9 +3,13 @@
 {% block title %}New Task{% endblock %}
 
 {% block body %}
-    <h1>Create new Task</h1>
+    <div class='tasksDiv'>
+        <h1>Create a new task</h1>
 
-    {{ include('task/_form.html.twig') }}
+        {{ include('task/_new_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('app_task_index') }}">back to list</a>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('/styles/css/task.css') }}">
+    {% endblock %}
 {% endblock %}
