@@ -1,3 +1,17 @@
+{#
+  Template: task/index.html.twig
+  Purpose: Displays a list of tasks made by the user in a table, with options to show, edit, or create new tasks.
+  Extends: base.html.twig
+
+  Variables expected:
+    - tasks: array of Task entities, each with the following properties:
+        - id: int
+        - title: string
+        - description: string|null
+        - deadline: \DateTimeInterface|null
+        - status: string ('Open', 'Doing' or 'Done')
+        - priority: string ('Low', 'Medium' or 'High')
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}Task index{% endblock %}
@@ -18,10 +32,12 @@
                 </tr>
             </thead>
             <tbody>
+            {# Loop through every task and show all data in table #}
             {% for task in tasks %}
                 <tr>
                     <td>{{ task.title }}</td>
                     <td>{{ task.description }}</td>
+                    {# Only format date if it's not null, else show empty string #}
                     <td>{{ task.deadline ? task.deadline|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.priority }}</td>
@@ -30,6 +46,7 @@
                         <a href="{{ path('app_task_edit', {'id': task.id}) }}" class='actionButton'>edit</a>
                     </td>
                 </tr>
+            {# If no tasks are found, show 'no records found' #}
             {% else %}
                 <tr>
                     <td colspan="7">no records found</td>

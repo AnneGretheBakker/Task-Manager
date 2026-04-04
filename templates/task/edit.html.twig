@@ -1,3 +1,9 @@
+{#
+  Template: task/edit.html.twig
+  Purpose: Show a form for users to edit a task.
+  Extends: base.html.twig
+  Includes: task/_edit_form.html.twig
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Task{% endblock %}
@@ -7,6 +13,7 @@
 
         <h1>Edit Task</h1>
 
+        {# Form for editing task #}
         {{ include('task/_edit_form.html.twig', {'button_label': 'Update'}) }}
     </div>
 

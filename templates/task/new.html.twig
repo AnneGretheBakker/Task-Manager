@@ -1,3 +1,9 @@
+{#
+  Template: task/new.html.twig
+  Purpose: Show a form for users to create new tasks.
+  Extends: base.html.twig
+  Includes: task/_new_form.html.twig
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}New Task{% endblock %}
@@ -6,6 +12,7 @@
     <div class='tasksDiv'>
         <h1>Create a new task</h1>
 
+        {# Form for creating a new task #}
         {{ include('task/_new_form.html.twig') }}
     </div>
 
