@@ -7,14 +7,10 @@ body {
     color: #1e293b;
 }
 
-.tasksDiv {
-    margin: 0 250px 250px;
-    padding: 2rem;
-}
-
-.loginDiv {
-    margin: 0 500px 500px;
-    padding: 2rem;
+.registerDiv, .loginDiv, .tasksDiv {
+    display: grid;
+    place-items: center;
+    margin: 0;
 }
 
 h1, h3 {
@@ -81,11 +77,11 @@ table td {
     width: 30%;
 }
 
-#loginTable {
-    width: 130%;
+#loginTable, #registerTable {
+    width: 100%;
 }
 
-#loginTable th {
+#loginTable th, registerTable th {
     width: 55%;
 }
 
@@ -148,19 +144,19 @@ a {
 
 form {
     display: inline-block;
-    margin: 0;
+    margin: 2px;
 }
 
 input, textarea, .form-control {
     width: 35%;
-    padding: 10px;
+    padding: 5px;
     border: 2px solid #d63384;
     border-radius: 10px;
     outline: none;
     font-size: 14px;
 }
 
-#loginTable input {
+#loginTable input, #registerTable input[type="text"], #registerTable input[type="password"] {
     width: 90%;
 }
 
@@ -174,4 +170,10 @@ input, textarea, .form-control {
 
 .new-form-table .form-control {
     width: 43%;
+}
+
+/* Reset margins/paddings op het checkbox-element */
+input[type="checkbox"] {
+    margin: 18px 10px 18px 18px;
+    width: auto;
 }
