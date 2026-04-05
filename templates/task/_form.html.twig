@@ -1,3 +1,10 @@
+{#
+  Template: task/_new_form.html.twig
+  Purpose: Renders a Symfony form.
+  Expected variables:
+    - form: Symfony FormView object for TaskType
+    - button_label: string (optional) – text on submit button, defaults to 'create'
+#}
 {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="actionButton">{{ button_label|default('Save') }}</button>

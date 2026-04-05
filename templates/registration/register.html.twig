@@ -1,3 +1,13 @@
+{#
+  Template: registration/register.html.twig
+  Purpose: Show a form for users to create an account.
+  Extends: base.html.twig
+    Variables expected:
+      - registrationForm: form with the following properties:
+          - email: text input
+          - plainPassword: text input
+          - agreeTerms: checkbox input
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}

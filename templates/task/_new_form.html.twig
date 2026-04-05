@@ -1,6 +1,12 @@
+{#
+  Template: task/_new_form.html.twig
+  Purpose: Renders a Symfony form for creating a Task entity.
+  Expected variables:
+    - form: Symfony FormView object for TaskType
+    - button_label: string (optional) – text on submit button, defaults to 'create'
+#}
 {{ form_start(form) }}
     <table class="new-form-table">
-        {# Titel #}
         <tr>
             <th>{{ form_label(form.title) }}</th>
             <td>
@@ -8,7 +14,6 @@
                 {{ form_errors(form.title) }}
             </td>
         </tr>
-        {# Omschrijving #}
         <tr>
             <th>{{ form_label(form.description) }}</th>
             <td>
@@ -16,7 +21,6 @@
                 {{ form_errors(form.description) }}
             </td>
         </tr>
-        {# Deadline #}
         <tr>
             <th>{{ form_label(form.deadline) }}</th>
             <td>
@@ -24,7 +28,6 @@
                 {{ form_errors(form.deadline) }}
             </td>
         </tr>
-        {# Status #}
         <tr>
             <th>{{ form_label(form.status) }}</th>
             <td>
@@ -32,7 +35,6 @@
                 {{ form_errors(form.status) }}
             </td>
         </tr>
-        {# Prioriteit (nu een select, geen input) #}
         <tr>
             <th>{{ form_label(form.priority) }}</th>
             <td>

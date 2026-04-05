@@ -1,3 +1,14 @@
+{#
+  Template: home/index.html.twig
+  Purpose: Displays a list of tasks due today/tomorrow, tasks with high priority and open tasks.
+  Extends: base.html.twig
+
+  Variables expected:
+    - urgentTasks, highPriority and openTasks: each an array of Task entities, each with the following properties:
+        - title: string
+        - deadline: \DateTimeInterface|null
+        - status: string ('Open', 'Doing' or 'Done')
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}Dashboard{% endblock %}
@@ -25,6 +36,7 @@
                 </tr>
             </thead>
             <tbody>
+            {# Loop through every urgent task and show the title, deadline and status of each in a table #}
             {% for task in urgentTasks %}
                 <tr>
                     <td>{{ task.title }}</td>
@@ -34,6 +46,7 @@
                         <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
                     </td>
                 </tr>
+            {# Show message when there are no urgent tasks #}
             {% else %}
                 <tr>
                     <td colspan="7">no tasks due today/tomorrow</td>
@@ -53,6 +66,7 @@
                 </tr>
             </thead>
             <tbody>
+            {# Loop through every task with high priority and show the title, deadline and status of each in a table #}
             {% for task in highPriority %}
                 <tr>
                     <td>{{ task.title }}</td>
@@ -62,6 +76,7 @@
                         <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
                     </td>
                 </tr>
+            {# Show message when there are no tasks with high priority #}
             {% else %}
                 <tr>
                     <td colspan="7">no tasks with high priority</td>
@@ -81,6 +96,7 @@
                 </tr>
             </thead>
             <tbody>
+            {# Loop through every open task and show the title, deadline and status of each in a table #}
             {% for task in openTasks %}
                 <tr>
                     <td>{{ task.title }}</td>
@@ -90,6 +106,7 @@
                         <a href="{{ path('app_task_show', {'id': task.id}) }}" class='actionButton'>show task</a>
                     </td>
                 </tr>
+            {# Show message when there are no open tasks #}
             {% else %}
                 <tr>
                     <td colspan="7">no tasks with high priority</td>
@@ -97,6 +114,7 @@
             {% endfor %}
             </tbody>
         </table>
+    {# Fallback for not logged in users #}
     {% else %}
     <h1>Welcome 👋</h1>
     <h3>Login or create an account to manage your tasks</h3>

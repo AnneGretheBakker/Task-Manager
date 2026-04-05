@@ -1,3 +1,8 @@
+{#
+  Template: security/login.html.twig
+  Purpose: Show a form for logging users in.
+  Extends: base.html.twig
+#}
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
@@ -5,10 +10,12 @@
 {% block body %}
 <div class='loginDiv'>
     <form method="post">
+        {# Show alert if there is an error #}
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
+        {# Show message and logout button if user is logged in #}
         {% if app.user %}
             <div class="mb-3">
                 You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
