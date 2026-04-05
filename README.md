@@ -25,8 +25,8 @@ A task management web application built with Symfony 6/7 and MySQL/SQLite.
 
 ### Instalation
 1. Clone the repository:\
-git clone https://github.com/yourusername/task-manager.git \
-cd task-manager
+git clone https://github.com/AnneGretheBakker/Task-Manager.git \
+cd Task-Manager
 
 2. Install dependencies:\
 composer install
