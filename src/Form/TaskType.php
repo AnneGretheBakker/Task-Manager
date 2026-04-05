@@ -8,8 +8,21 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
+/**
+ * Type for creating and editing Task Entities
+ *
+ * Defines the form fields for Task: title, description, deadline, status and priority
+ *
+ * @extends AbstractType
+ */
 class TaskType extends AbstractType
 {
+    /**
+     * Builds the Task Form with the necessary fields
+     *
+     * @param FormBuilderInterface $builder The form builder
+     * @param array                $options The additional options (not used yet)
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -35,6 +48,11 @@ class TaskType extends AbstractType
         ;
     }
 
+    /**
+     * Configures default options for this form type
+     *
+     * @param OptionsResolver $resolver The options resolver
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

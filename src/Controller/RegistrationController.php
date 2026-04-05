@@ -16,12 +16,32 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+/**
+ * Controller for the Registration
+ *
+ * Handles the registration and email verification of users
+ *
+ * @extends AbstractController
+ */
 class RegistrationController extends AbstractController
 {
+    /**
+     * @param EmailVerifier $emailVerifier Verifies the email address
+     */
     public function __construct(private EmailVerifier $emailVerifier)
     {
     }
 
+    /**
+     * Handles the registration of the user by hashing the password and sending the email confirmation, or rendering the
+     * registration form
+     *
+     * @param Request                     $request            The registration request
+     * @param UserPasswordHasherInterface $userPasswordHasher Handles the hashing of the password
+     * @param EntityManagerInterface      $entityManager      The entity manager
+     * @return Response of the redirection to the home page when form is submitted, or the rendering of the
+     *           registration form
+     */
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
@@ -30,16 +50,13 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
-            // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('agbakker2005@gmail.com', 'Task Manager Mail Bot'))
@@ -48,7 +65,6 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
 
-            // do anything else you need here, like send an email
 
             return $this->redirectToRoute('app_home');
         }
@@ -58,6 +74,13 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    /**
+     * Verifies the email of the user
+     *
+     * @param Request             $request    The email verification request
+     * @param TranslatorInterface $translator Translates the reason of the exceptions
+     * @return Response of redirecting to the register page
+     */
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {

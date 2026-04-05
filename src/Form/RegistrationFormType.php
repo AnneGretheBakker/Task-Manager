@@ -12,8 +12,21 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Type for creating registration forms
+ *
+ * Defines the form fields for the registration form: email, agreeTerms and plainPassword
+ *
+ * @extends AbstractType
+ */
 class RegistrationFormType extends AbstractType
 {
+    /**
+     * Builds the registration form with the necessary fields
+     *
+     * @param FormBuilderInterface $builder The form builder
+     * @param array                $options The additional options (not used yet)
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -46,6 +59,11 @@ class RegistrationFormType extends AbstractType
         ;
     }
 
+    /**
+     * Configures default options for this form type
+     *
+     * @param OptionsResolver $resolver The options resolver
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
