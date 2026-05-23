@@ -20,8 +20,8 @@
 
         {{ form_errors(registrationForm) }}
 
-        <h1>Create an account</h1>
         {{ form_start(registrationForm) }}
+        <h1>Create an account</h1>
         <table id='registerTable'>
             <tr>
                 <th>
@@ -44,17 +44,16 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <div>
-                        {{ form_widget(registrationForm.agreeTerms) }}
-                        Agree to the terms
-                    </div>
-                </td>
+                <th colspan="2">
+                    {{ form_widget(registrationForm.agreeTerms) }}
+                    Agree to the terms
+                </th>
             </tr>
             <tr>
-                <td colspan="2">
-                    <button type="submit" class="actionButton">Register</button>
-                </td>
+                <th>
+                    <button type="submit" class="actionButton" id="registerButton">Register</button>
+                </th>
+                <td> </td>
             </tr>
         </table>
         {{ form_end(registrationForm) }}
