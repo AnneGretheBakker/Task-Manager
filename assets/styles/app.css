@@ -117,3 +117,10 @@ body {
 #registerTitle {
     text-align: left;
 }
+
+#homePage table {
+    margin: 1em 0;
+    max-width: 100%;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+}
